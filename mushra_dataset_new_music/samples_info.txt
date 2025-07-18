@@ -1,5 +1,5 @@
-sample1: e478fa83_118223.mp3
-sample2: db7e4350_036258.mp3
-sample3: 1c417313_030636.mp3
-sample4: 2917ac14_144550.mp3
-sample5: 157e88cf_144473.mp3
+sample1: 2890c368_123936.mp3
+sample2: 1a49510c_147126.mp3
+sample3: cfef7849_010447.mp3
+sample4: ae2307bc_081792.mp3
+sample5: 80517c34_109450.mp3
