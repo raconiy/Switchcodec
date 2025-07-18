@@ -131,6 +131,72 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
+        /* Single Paragraph Abstract Section */
+        .abstract-section {
+            max-width: 900px;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            text-align: justify;
+        }
+        
+        .abstract-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+        }
+        
+        .abstract-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #3498db;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            justify-content: center;
+        }
+        
+        .abstract-title i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .abstract-content {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(236, 240, 241, 0.85);
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.15), rgba(155, 89, 182, 0.15));
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .performance-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, rgba(46, 204, 113, 0.15), rgba(39, 174, 96, 0.15));
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            margin: 10px 5px;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+        
         .hr_line {
             height: 1px;
             background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.5), transparent);
@@ -375,6 +441,10 @@
                 grid-template-columns: 120px repeat(10, 1fr);
                 gap: 8px;
             }
+            
+            .abstract-section {
+                padding: 20px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -399,6 +469,10 @@
             .grid-header, .sample-header, .audio-cell {
                 min-width: 120px;
             }
+            
+            .abstract-content {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -406,15 +480,25 @@
     <div class="wave-animation"></div>
     <div class="container">
         <header>
-            <h1>SwitchCodec: SwitchCodec: A High-Fidelity Nerual Audio Codec With Sparse Quantization</h1>
-            <p class="subtitle">Organization=Hangzhou dianzi University,addressline=, city=Hangzhou, postcode=, state=, country=China</p>
-            
+            <h1>SwitchCodec: A High-Fidelity Nerual Audio Codec With Sparse Quantization</h1>
+            <p class="subtitle">A universal high-fidelity neural audio compression algorithm for speech and music</p>
             <div class="authors">
                 <div class="author"><i class="fas fa-user"></i> Jin Wang</div>
                 <div class="author"><i class="fas fa-user"></i> Wenbin Jiang</div>
                 <div class="author"><i class="fas fa-user"></i> Xiangbo Wang</div>
                 <div class="author"><i class="fas fa-user"></i> Yubo You</div>
                 <div class="author"><i class="fas fa-user"></i> Sheng Fang</div>
+            </div>
+            
+            <!-- Single Paragraph Abstract Section -->
+            <div class="abstract-section">
+                <div class="abstract-title">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Abstract</h3>
+                </div>
+                <div class="abstract-content">
+                    <p>Neural audio compression has emerged as a promising technology for efficiently representing speech, music, and general audio. However, existing methods suffer from significant performance degradation at limited bitrates, where the available embedding space is sharply constrained. To address this, we propose a universal high-fidelity neural audio compression algorithm featuring Residual Experts Vector Quantization (REVQ), which substantially expands the embedding space with minimal impact on bandwidth. A gentle load-balancing strategy is introduced to ensure the full utilization of this expanded space. Furthermore, we develop a novel multi-tiered discriminator that periodically stratifies STFT spectra, guiding the generator to focus on critical spectral regions. To support multiple bitrates without quality loss at the lower end, we adopt an efficient post-training strategy. Our proposed model achieves impressive performance, with PESQ: 2.87 and ViSQOL: 4.04 at just 2.67 kbps bandwidth. The approach effectively reduces spectral blur, decreasing the distance to the original mel-spectrogram by 13%. Notably, our post-training strategy achieves performance comparable to dedicated fixed-bitrate models while reducing the required training time by half. Extensive ablation studies confirm the superiority of our method over baselines.</p>
+                </div>
             </div>
         </header>
 
@@ -650,6 +734,18 @@
                 this.style.transform = 'scale(1)';
                 this.style.background = 'rgba(44, 62, 80, 0.8)';
             });
+        });
+        
+        // Add animation to abstract section
+        const abstractSection = document.querySelector('.abstract-section');
+        abstractSection.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+            this.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.4)';
+        });
+        
+        abstractSection.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.25)';
         });
     </script>
 </body>
