@@ -11,30 +11,21 @@
 <body>
     <div class="container">
         <header>
-            <h1>Speech Enhancement with Neural Homomorphic Synthesis <small class="color_fade">Online Samples</small>
+            <h1>SwitchCodec A High-Fidelity Nerual Audio Codec With Spare Quantization <small class="color_fade">Online Samples</small>
             </h1>
         </header>
 
         <h4> Authors:</h4>
-        <div style="font-size: medium;"> Wenbin Jiang, Zhijun Liu, Kai Yu, Fei Wen </div>
-        <h4> Abstract:</h4>
-        <div style="font-size: medium;"> Most deep learning-based speech enhancement methods operate directly on time-frequency representations or
-            learned features without making use of the model of speech production. This work proposes a new speech
-            enhancement method based on neural homomorphic synthesis. The speech signal is firstly decomposed into
-            excitation and vocal track with complex cepstrum analysis. Then, two complex-valued neural networks are
-            applied to estimate the target complex spectrum of the decomposed components. Finally, the time-domain
-            speech signal is synthesized from the estimated excitation and vocal track. Furthermore, we investigated
-            numerous loss functions and found that the multi-resolution STFT loss, commonly used in the TTS vocoder,
-            benefits speech enhancement. Experimental results demonstrate that the proposed method outperforms existing
-            state-of-the-art complex-valued neural network-based methods in terms of both PESQ and eSTOI.</div>
+        <div style="font-size: medium;"> Jin Wang Wenbin Jiang Xiangbo Wang Yubo You Sheng Fang </div>
+        
 
 
         <hr class="hr_line">
-        <h3>Seen Noise</h3>
+        <h3>Speech</h3>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Model\Noise</th>
+                    <th>Model</th>
                     <th>OMEETING</th>
                     <th>DKITCHEN</th>
                     <th>OMEETING</th>
@@ -49,11 +40,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond1/sample3_cond1.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond1/sample4_cond1.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond1/sample5_cond1.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond1/sample6_cond1.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond1/sample7_cond1.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond1/sample8_cond1.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond1/sample9_cond1.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond1/sample10_cond1.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond2 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond2/sample1_cond2.wav"></audio></td>
@@ -61,11 +47,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond2/sample3_cond2.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond2/sample4_cond2.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond2/sample5_cond2.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond2/sample6_cond2.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond2/sample7_cond2.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond2/sample8_cond2.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond2/sample9_cond2.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond2/sample10_cond2.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond3 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond3/sample1_cond3.wav"></audio></td>
@@ -73,11 +54,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond3/sample3_cond3.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond3/sample4_cond3.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond3/sample5_cond3.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond3/sample6_cond3.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond3/sample7_cond3.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond3/sample8_cond3.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond3/sample9_cond3.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond3/sample10_cond3.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond4 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond4/sample1_cond4.wav"></audio></td>
@@ -85,11 +61,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond4/sample3_cond4.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond4/sample4_cond4.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond4/sample5_cond4.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond4/sample6_cond4.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond4/sample7_cond4.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond4/sample8_cond4.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond4/sample9_cond4.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond4/sample10_cond4.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond5 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond5/sample1_cond5.wav"></audio></td>
@@ -97,11 +68,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond5/sample3_cond5.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond5/sample4_cond5.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond5/sample5_cond5.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond5/sample6_cond5.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond5/sample7_cond5.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond5/sample8_cond5.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond5/sample9_cond5.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond5/sample10_cond5.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond6 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond6/sample1_cond6.wav"></audio></td>
@@ -109,11 +75,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond6/sample3_cond6.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond6/sample4_cond6.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond6/sample5_cond6.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond6/sample6_cond6.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond6/sample7_cond6.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond6/sample8_cond6.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond6/sample9_cond6.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond6/sample10_cond6.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond7 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond7/sample1_cond7.wav"></audio></td>
@@ -121,11 +82,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond7/sample3_cond7.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond7/sample4_cond7.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond7/sample5_cond7.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond7/sample6_cond7.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond7/sample7_cond7.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond7/sample8_cond7.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond7/sample9_cond7.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond7/sample10_cond7.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond8 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond8/sample1_cond8.wav"></audio></td>
@@ -133,11 +89,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond8/sample3_cond8.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond8/sample4_cond8.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond8/sample5_cond8.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond8/sample6_cond8.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond8/sample7_cond8.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond8/sample8_cond8.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond8/sample9_cond8.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond8/sample10_cond8.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond9 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond9/sample1_cond9.wav"></audio></td>
@@ -145,11 +96,6 @@
                     <td><audio controls=""><source src="grouped_conditions/cond9/sample3_cond9.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond9/sample4_cond9.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond9/sample5_cond9.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond9/sample6_cond9.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond9/sample7_cond9.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond9/sample8_cond9.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond9/sample9_cond9.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond9/sample10_cond9.wav"></audio></td>
                     </tr>
                     <tr> <td> Cond10 </td>
                     <td><audio controls=""><source src="grouped_conditions/cond10/sample1_cond10.wav"></audio></td>
@@ -157,23 +103,15 @@
                     <td><audio controls=""><source src="grouped_conditions/cond10/sample3_cond10.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond10/sample4_cond10.wav"></audio></td>
                     <td><audio controls=""><source src="grouped_conditions/cond10/sample5_cond10.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond10/sample6_cond10.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond10/sample7_cond10.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond10/sample8_cond10.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond10/sample9_cond10.wav"></audio></td>
-                    <td><audio controls=""><source src="grouped_conditions/cond10/sample10_cond10.wav"></audio></td>
                     </tr>
             </tbody>
         </table>
-        <h4>Spectrogram of the samples in first column </h4>
-        <img src="img/555.png" class="container">
-        
         <hr class="hr_line">
-        <h3>Unseen Noise</h3>
+        <h3>Music</h3>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Model\Noise</th>
+                    <th>Model</th>
                     <th>NFIELD</th>
                     <th>NPARK</th>
                     <th>NRIVER</th>
@@ -182,52 +120,83 @@
                 </tr>
             </thead>
             <tbody>
-                <tr> <td> Clean </td>
-                    <td><audio controls=""><source src="samples/Clean/2081.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Clean/2588.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Clean/3004.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Clean/3564.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Clean/4368.wav"></audio></td>
+                <tr> <td> Cond1 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond1.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond1.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond1.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond1.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond1.mp3"></audio></td>
                     </tr>
-                    <tr> <td> Noisy </td>
-                    <td><audio controls=""><source src="samples/Noisy/2081.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Noisy/2588.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Noisy/3004.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Noisy/3564.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/Noisy/4368.wav"></audio></td>
+                    <tr> <td> Cond2 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond2.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond2.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond2.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond2.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond2.mp3"></audio></td>
                     </tr>
-                    <tr> <td> DCCRN-SI-SNR </td>
-                    <td><audio controls=""><source src="samples/DCCRN-SI-SNR/2081.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-SI-SNR/2588.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-SI-SNR/3004.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-SI-SNR/3564.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-SI-SNR/4368.wav"></audio></td>
+                    <tr> <td> Cond3 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond3.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond3.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond3.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond3.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond3.mp3"></audio></td>
                     </tr>
-                    <tr> <td> DCCRN-wSDR </td>
-                    <td><audio controls=""><source src="samples/DCCRN-wSDR/2081.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-wSDR/2588.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-wSDR/3004.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-wSDR/3564.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-wSDR/4368.wav"></audio></td>
+                    <tr> <td> Cond4 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond4.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond4.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond4.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond4.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond4.mp3"></audio></td>
                     </tr>
-                    <tr> <td> DCCRN-MR-STFT </td>
-                    <td><audio controls=""><source src="samples/DCCRN-MR-STFT/2081.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-MR-STFT/2588.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-MR-STFT/3004.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-MR-STFT/3564.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/DCCRN-MR-STFT/4368.wav"></audio></td>
+                    <tr> <td> Cond5 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond5.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond5.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond5.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond5.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond5.mp3"></audio></td>
                     </tr>
-                    <tr> <td> NHS-SE </td>
-                    <td><audio controls=""><source src="samples/NHS-SE/2081.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/NHS-SE/2588.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/NHS-SE/3004.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/NHS-SE/3564.wav"></audio></td>
-                    <td><audio controls=""><source src="samples/NHS-SE/4368.wav"></audio></td>
+                    <tr> <td> Cond6 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond6.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond6.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond6.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond6.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond6.mp3"></audio></td>
+                    </tr>
+                    </tr>
+                    <tr> <td> Cond7 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond7.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond7.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond7.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond7.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond7.mp3"></audio></td>
+                    </tr>
+                    </tr>
+                    <tr> <td> Cond8 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond8.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond8.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond8.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond8.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond8.mp3"></audio></td>
+                    </tr>
+                    </tr>
+                    <tr> <td> Cond9 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond9.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond9.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond9.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond9.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond9.mp3"></audio></td>
+                    </tr>
+                    </tr>
+                    <tr> <td> Cond10 </td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample1/cond10.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample2/cond10.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample3/cond10.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample4/cond10.mp3"></audio></td>
+                    <td><audio controls=""><source src="mushra_dataset_new_music/sample5/cond10.mp3"></audio></td>
+                    </tr>
                     </tr>
             </tbody>
         </table>
-        <h4>Spectrogram of the samples in first column </h4>
-        <img src="img/2081.png" class="container">
         <!-- <hr class="hr_line"> -->
         <div class="row"> &nbsp; </div> <br/>
 
