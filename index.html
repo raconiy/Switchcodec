@@ -27,14 +27,15 @@
         
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1a2a3a, #0d1b2a);
+            background: linear-gradient(135deg, #0d1b2a, #1a2a3a);
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -83,6 +84,14 @@
             border-radius: 2px;
         }
         
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(236, 240, 241, 0.8);
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+        
         h3 {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
@@ -112,11 +121,14 @@
             border-radius: 30px;
             font-size: 1.05rem;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
         }
         
         .author:hover {
             background: rgba(52, 152, 219, 0.2);
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .hr_line {
@@ -184,6 +196,12 @@
             color: #9b59b6;
         }
         
+        .sample-cell {
+            font-weight: 600;
+            background: rgba(44, 62, 80, 0.6);
+            color: #2ecc71;
+        }
+        
         audio {
             width: 100%;
             max-width: 220px;
@@ -193,6 +211,7 @@
         
         audio:hover {
             transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
         }
         
         audio::-webkit-media-controls-panel {
@@ -265,6 +284,83 @@
             z-index: -1;
         }
         
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 150px repeat(10, 1fr);
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .grid-header {
+            background: rgba(44, 62, 80, 0.8);
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #3498db;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .grid-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #9b59b6);
+        }
+        
+        .sample-header {
+            background: rgba(44, 62, 80, 0.6);
+            color: #2ecc71;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .audio-cell {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .audio-cell:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .grid-section {
+            margin-bottom: 50px;
+        }
+        
+        .grid-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.5);
+        }
+        
+        .grid-title i {
+            margin-right: 12px;
+            color: #3498db;
+            font-size: 1.8rem;
+        }
+        
+        .grid-title h3 {
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+        
         @keyframes wave {
             0% { background-position-x: 0; }
             100% { background-position-x: 1200px; }
@@ -275,8 +371,9 @@
                 font-size: 2.2rem;
             }
             
-            .table-container {
-                border-radius: 10px;
+            .comparison-grid {
+                grid-template-columns: 120px repeat(10, 1fr);
+                gap: 8px;
             }
         }
         
@@ -289,13 +386,18 @@
                 font-size: 1.8rem;
             }
             
-            h3 {
-                font-size: 1.5rem;
+            .comparison-grid {
+                overflow-x: auto;
+                display: block;
             }
             
             .authors {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .grid-header, .sample-header, .audio-cell {
+                min-width: 120px;
             }
         }
     </style>
@@ -304,8 +406,8 @@
     <div class="wave-animation"></div>
     <div class="container">
         <header>
-            <h1>SwitchCodec: A High-Fidelity Neural Audio Codec With Sparse Quantization</h1>
-            <p class="subtitle">Superior Audio Quality with Neural Network Compression</p>
+            <h1>SwitchCodec: High-Fidelity Neural Audio Codec</h1>
+            <p class="subtitle">Advanced Sparse Quantization for Superior Audio Quality Across Diverse Content</p>
             
             <div class="authors">
                 <div class="author"><i class="fas fa-user"></i> Jin Wang</div>
@@ -318,214 +420,188 @@
 
         <hr class="hr_line">
         
-        <div class="section-header">
-            <h3><i class="fas fa-microphone-alt"></i> Speech Samples</h3>
-            <div class="info-badge">
-                <i class="fas fa-info-circle"></i> 5 samples per condition
+        <!-- Speech Samples Section -->
+        <div class="grid-section">
+            <div class="grid-title">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Speech Samples Comparison</h3>
+                <div class="info-badge">
+                    <i class="fas fa-info-circle"></i> 5 samples across 10 conditions
+                </div>
             </div>
-        </div>
-        
-        <div class="table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>Speech1</th>
-                        <th>Speech2</th>
-                        <th>Speech3</th>
-                        <th>Speech4</th>
-                        <th>Speech5</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr> 
-                        <td class="model-cell">Cond1</td>
-                        <td><audio controls><source src="grouped_conditions/cond1/sample1_cond1.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond1/sample2_cond1.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond1/sample3_cond1.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond1/sample4_cond1.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond1/sample5_cond1.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond2</td>
-                        <td><audio controls><source src="grouped_conditions/cond2/sample1_cond2.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond2/sample2_cond2.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond2/sample3_cond2.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond2/sample4_cond2.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond2/sample5_cond2.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond3</td>
-                        <td><audio controls><source src="grouped_conditions/cond3/sample1_cond3.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond3/sample2_cond3.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond3/sample3_cond3.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond3/sample4_cond3.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond3/sample5_cond3.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond4</td>
-                        <td><audio controls><source src="grouped_conditions/cond4/sample1_cond4.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond4/sample2_cond4.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond4/sample3_cond4.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond4/sample4_cond4.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond4/sample5_cond4.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond5</td>
-                        <td><audio controls><source src="grouped_conditions/cond5/sample1_cond5.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond5/sample2_cond5.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond5/sample3_cond5.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond5/sample4_cond5.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond5/sample5_cond5.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond6</td>
-                        <td><audio controls><source src="grouped_conditions/cond6/sample1_cond6.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond6/sample2_cond6.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond6/sample3_cond6.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond6/sample4_cond6.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond6/sample5_cond6.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond7</td>
-                        <td><audio controls><source src="grouped_conditions/cond7/sample1_cond7.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond7/sample2_cond7.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond7/sample3_cond7.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond7/sample4_cond7.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond7/sample5_cond7.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond8</td>
-                        <td><audio controls><source src="grouped_conditions/cond8/sample1_cond8.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond8/sample2_cond8.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond8/sample3_cond8.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond8/sample4_cond8.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond8/sample5_cond8.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond9</td>
-                        <td><audio controls><source src="grouped_conditions/cond9/sample1_cond9.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond9/sample2_cond9.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond9/sample3_cond9.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond9/sample4_cond9.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond9/sample5_cond9.wav"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond10</td>
-                        <td><audio controls><source src="grouped_conditions/cond10/sample1_cond10.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond10/sample2_cond10.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond10/sample3_cond10.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond10/sample4_cond10.wav"></audio></td>
-                        <td><audio controls><source src="grouped_conditions/cond10/sample5_cond10.wav"></audio></td>
-                    </tr>
-                </tbody>
-            </table>
+            
+            <div class="comparison-grid">
+                <!-- Column Headers (Models) -->
+                <div class="grid-header">Sample ↓ / Model →</div>
+                <div class="grid-header">Cond1</div>
+                <div class="grid-header">Cond2</div>
+                <div class="grid-header">Cond3</div>
+                <div class="grid-header">Cond4</div>
+                <div class="grid-header">Cond5</div>
+                <div class="grid-header">Cond6</div>
+                <div class="grid-header">Cond7</div>
+                <div class="grid-header">Cond8</div>
+                <div class="grid-header">Cond9</div>
+                <div class="grid-header">Cond10</div>
+                
+                <!-- Row 1: Speech Sample 1 -->
+                <div class="sample-header">Speech1</div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond1/sample1_cond1.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond2/sample1_cond2.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond3/sample1_cond3.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond4/sample1_cond4.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond5/sample1_cond5.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond6/sample1_cond6.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond7/sample1_cond7.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond8/sample1_cond8.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond9/sample1_cond9.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond10/sample1_cond10.wav"></audio></div>
+                
+                <!-- Row 2: Speech Sample 2 -->
+                <div class="sample-header">Speech2</div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond1/sample2_cond1.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond2/sample2_cond2.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond3/sample2_cond3.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond4/sample2_cond4.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond5/sample2_cond5.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond6/sample2_cond6.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond7/sample2_cond7.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond8/sample2_cond8.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond9/sample2_cond9.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond10/sample2_cond10.wav"></audio></div>
+                
+                <!-- Row 3: Speech Sample 3 -->
+                <div class="sample-header">Speech3</div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond1/sample3_cond1.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond2/sample3_cond2.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond3/sample3_cond3.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond4/sample3_cond4.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond5/sample3_cond5.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond6/sample3_cond6.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond7/sample3_cond7.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond8/sample3_cond8.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond9/sample3_cond9.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond10/sample3_cond10.wav"></audio></div>
+                
+                <!-- Row 4: Speech Sample 4 -->
+                <div class="sample-header">Speech4</div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond1/sample4_cond1.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond2/sample4_cond2.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond3/sample4_cond3.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond4/sample4_cond4.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond5/sample4_cond5.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond6/sample4_cond6.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond7/sample4_cond7.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond8/sample4_cond8.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond9/sample4_cond9.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond10/sample4_cond10.wav"></audio></div>
+                
+                <!-- Row 5: Speech Sample 5 -->
+                <div class="sample-header">Speech5</div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond1/sample5_cond1.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond2/sample5_cond2.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond3/sample5_cond3.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond4/sample5_cond4.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond5/sample5_cond5.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond6/sample5_cond6.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond7/sample5_cond7.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond8/sample5_cond8.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond9/sample5_cond9.wav"></audio></div>
+                <div class="audio-cell"><audio controls><source src="grouped_conditions/cond10/sample5_cond10.wav"></audio></div>
+            </div>
         </div>
         
         <hr class="hr_line">
         
-        <div class="section-header">
-            <h3><i class="fas fa-music"></i> Music Samples</h3>
-            <div class="info-badge">
-                <i class="fas fa-info-circle"></i> 5 samples per condition
+        <!-- Music Samples Section -->
+        <div class="grid-section">
+            <div class="grid-title">
+                <i class="fas fa-music"></i>
+                <h3>Music Samples Comparison</h3>
+                <div class="info-badge">
+                    <i class="fas fa-info-circle"></i> 5 samples across 10 conditions
+                </div>
             </div>
-        </div>
-        
-        <div class="table-container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>Music1</th>
-                        <th>Music2</th>
-                        <th>Music3</th>
-                        <th>Music4</th>
-                        <th>Music5</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr> 
-                        <td class="model-cell">Cond1</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond1.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond1.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond1.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond1.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond1.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond2</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond2.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond2.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond2.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond2.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond2.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond3</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond3.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond3.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond3.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond3.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond3.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond4</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond4.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond4.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond4.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond4.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond4.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond5</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond5.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond5.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond5.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond5.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond5.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond6</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond6.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond6.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond6.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond6.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond6.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond7</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond7.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond7.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond7.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond7.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond7.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond8</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond8.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond8.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond8.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond8.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond8.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond9</td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample1/cond9.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond9.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond9.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond9.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond9.mp3"></audio></td>
-                    </tr>
-                    <tr> 
-                        <td class="model-cell">Cond10</td>
-                        <td><audio controls><source src="C/sample1/cond10.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample2/cond10.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample3/cond10.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample4/cond10.mp3"></audio></td>
-                        <td><audio controls><source src="mushra_dataset_new_music/sample5/cond10.mp3"></audio></td>
-                    </tr>
-                </tbody>
-            </table>
+            
+            <div class="comparison-grid">
+                <!-- Column Headers (Models) -->
+                <div class="grid-header">Sample ↓ / Model →</div>
+                <div class="grid-header">Cond1</div>
+                <div class="grid-header">Cond2</div>
+                <div class="grid-header">Cond3</div>
+                <div class="grid-header">Cond4</div>
+                <div class="grid-header">Cond5</div>
+                <div class="grid-header">Cond6</div>
+                <div class="grid-header">Cond7</div>
+                <div class="grid-header">Cond8</div>
+                <div class="grid-header">Cond9</div>
+                <div class="grid-header">Cond10</div>
+                
+                <!-- Row 1: Music Sample 1 -->
+                <div class="sample-header">Music1</div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond1.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond2.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond3.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond4.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond5.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond6.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond7.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond8.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond9.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample1/cond10.mp3"></audio></div>
+                
+                <!-- Row 2: Music Sample 2 -->
+                <div class="sample-header">Music2</div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond1.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond2.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond3.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond4.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond5.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond6.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond7.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond8.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond9.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample2/cond10.mp3"></audio></div>
+                
+                <!-- Row 3: Music Sample 3 -->
+                <div class="sample-header">Music3</div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond1.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond2.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond3.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond4.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond5.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond6.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond7.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond8.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond9.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample3/cond10.mp3"></audio></div>
+                
+                <!-- Row 4: Music Sample 4 -->
+                <div class="sample-header">Music4</div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond1.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond2.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond3.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond4.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond5.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond6.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond7.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond8.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond9.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample4/cond10.mp3"></audio></div>
+                
+                <!-- Row 5: Music Sample 5 -->
+                <div class="sample-header">Music5</div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond1.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond2.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond3.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond4.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond5.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond6.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond7.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond8.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond9.mp3"></audio></div>
+                <div class="audio-cell"><audio controls><source src="mushra_dataset_new_music/sample5/cond10.mp3"></audio></div>
+            </div>
         </div>
         
         <div class="footer">
@@ -537,17 +613,6 @@
     </div>
     
     <script>
-        // Add subtle hover effects to audio controls
-        document.querySelectorAll('audio').forEach(audio => {
-            audio.addEventListener('mouseenter', function() {
-                this.style.boxShadow = '0 0 15px rgba(52, 152, 219, 0.6)';
-            });
-            
-            audio.addEventListener('mouseleave', function() {
-                this.style.boxShadow = 'none';
-            });
-        });
-        
         // Add animation to author names
         document.querySelectorAll('.author').forEach(author => {
             author.addEventListener('mouseenter', function() {
@@ -558,6 +623,32 @@
             author.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
                 this.style.boxShadow = 'none';
+            });
+        });
+        
+        // Add subtle hover effects to audio cells
+        document.querySelectorAll('.audio-cell').forEach(cell => {
+            cell.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
+            });
+            
+            cell.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
+            });
+        });
+        
+        // Add animation to grid headers
+        document.querySelectorAll('.grid-header').forEach(header => {
+            header.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.background = 'rgba(52, 152, 219, 0.4)';
+            });
+            
+            header.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.background = 'rgba(44, 62, 80, 0.8)';
             });
         });
     </script>
