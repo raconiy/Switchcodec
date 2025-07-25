@@ -1,10 +1,8 @@
 cond1 dac 3.56kps
 cond2 dac 2.67kps
 cond3 Switchcodec 2.67kps
-cond4 dac 4.44kps
-cond5 dac 5.33kps
-cond6 dac 6.22kps
-cond7 Encodec 3kps
-cond8 Encodec 6kps
-cond9 Encodec 12kps
-cond10 Switchcodec 5.33kps
+cond4 dac 5.33kps
+cond5 Encodec 3kps
+cond6 Encodec 6kps
+cond7 Encodec 12kps
+cond8 Switchcodec 5.33kps
